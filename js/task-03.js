@@ -14,7 +14,6 @@ const images = [
 ];
 
 const galleryRef = document.querySelector('#gallery');
-console.log(galleryRef);
 
 images.forEach(image => {
   galleryRef.insertAdjacentHTML(
@@ -25,4 +24,10 @@ images.forEach(image => {
   );
 });
 
+const galleryEl = document.querySelectorAll('li');
+console.log(galleryEl);
 galleryRef.style.display = 'inline-flex';
+galleryRef.style.listStyle = 'none';
+galleryRef.style.justifyContent = 'center';
+galleryEl[0].style.marginRight = '10px';
+galleryEl[1].style.marginRight = '10px';
