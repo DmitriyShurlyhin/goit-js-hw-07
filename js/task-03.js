@@ -15,17 +15,27 @@ const images = [
 
 const galleryRef = document.querySelector('#gallery');
 
-images.forEach(image => {
-  galleryRef.insertAdjacentHTML(
-    'beforeend',
-    `<li>
-      <img src = ${image.url} alt = ${image.alt} width = 400 height = 250>
-    </li>`,
-  );
-});
+// images.forEach(image => {
+//   galleryRef.insertAdjacentHTML(
+//     'beforeend',
+//     `<li>
+//       <img src = ${image.url} alt = ${image.alt} width = 400 height = 250>
+//     </li>`,
+//   );
+// });
+
+const createElem = elements => {
+  return elements
+    .map(({ url, alt }) => {
+      return `<li><img src=${url} alt=${alt} width=400 height=250></li>`;
+    })
+    .join('');
+};
+
+galleryRef.insertAdjacentHTML('beforeend', createElem(images));
 
 const galleryEl = document.querySelectorAll('li');
-console.log(galleryEl);
+// console.log(galleryEl);
 galleryRef.style.display = 'inline-flex';
 galleryRef.style.listStyle = 'none';
 galleryRef.style.justifyContent = 'center';
